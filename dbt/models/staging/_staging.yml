@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: stg_transactions
+    description: >
+      Staged transaction data from the core banking system.
+      Cleanses raw data, applies type casting, and prepares
+      hash keys for Data Vault loading.
+    columns:
+      - name: transaction_id
+        description: "Unique transaction identifier from source system"
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: "Customer identifier — business key for hub_customer"
+        tests:
+          - not_null
+      - name: account_number
+        description: "Account number — business key for hub_account"
+        tests:
+          - not_null
+      - name: transaction_amount
+        description: "Transaction amount in local currency"
+      - name: transaction_currency
+        description: "ISO 4217 currency code"
+      - name: transaction_type
+        description: "Transaction type (CREDIT, DEBIT, TRANSFER)"
+      - name: transaction_timestamp
+        description: "UTC timestamp of the transaction"
+      - name: record_source
+        description: "Source system identifier for lineage tracking"
+      - name: load_datetime
+        description: "Timestamp when this record was loaded into the platform"
