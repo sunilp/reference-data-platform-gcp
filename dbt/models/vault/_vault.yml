@@ -1,0 +1,67 @@
+version: 2
+
+models:
+  - name: hub_customer
+    description: >
+      Customer hub — stores the unique set of customer business keys.
+      Each record represents a distinct customer identified by customer_id.
+      Loaded incrementally; once a customer key is recorded, it is never updated.
+    columns:
+      - name: hk_customer
+        description: "Hash key derived from customer_id"
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: "Customer business key from source system"
+        tests:
+          - not_null
+      - name: load_datetime
+        description: "Timestamp of first load into the hub"
+      - name: record_source
+        description: "Source system that first provided this customer key"
+
+  - name: hub_account
+    description: >
+      Account hub — stores the unique set of account business keys.
+      Each record represents a distinct account identified by account_number.
+    columns:
+      - name: hk_account
+        description: "Hash key derived from account_number"
+        tests:
+          - not_null
+          - unique
+      - name: account_number
+        description: "Account business key"
+        tests:
+          - not_null
+      - name: load_datetime
+        description: "Timestamp of first load"
+      - name: record_source
+        description: "Source system that first provided this account"
+
+  - name: link_customer_account
+    description: >
+      Links customers to their accounts. A customer can have multiple accounts,
+      and an account can (in theory) be shared by multiple customers (joint accounts).
+    columns:
+      - name: hk_customer_account
+        description: "Hash key derived from customer_id + account_number"
+        tests:
+          - not_null
+          - unique
+      - name: hk_customer
+        description: "Foreign hash key to hub_customer"
+      - name: hk_account
+        description: "Foreign hash key to hub_account"
+
+  - name: sat_customer_details
+    description: >
+      Customer descriptive attributes. Tracks changes over time using
+      hashdiff-based change detection. A new record is inserted only
+      when attributes change.
+
+  - name: sat_account_balance
+    description: >
+      Account balance satellite. Tracks the balance and status of each
+      account over time.
