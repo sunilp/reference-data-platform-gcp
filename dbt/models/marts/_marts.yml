@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: dim_customer_accounts
+    description: >
+      Business-ready dimension combining customer and account information.
+      Flattens the Data Vault structure (hub + satellites + links) into
+      a traditional denormalized view for business consumption.
+
+      This is the layer that analysts, BI tools, and downstream applications
+      query. It abstracts away the Data Vault complexity while maintaining
+      the benefits of the underlying auditability.
+    columns:
+      - name: customer_id
+        description: "Customer business key"
+        tests:
+          - not_null
+      - name: account_number
+        description: "Account business key"
+        tests:
+          - not_null
+      - name: first_seen_date
+        description: "Date the customer was first loaded into the platform"
+      - name: latest_transaction_amount
+        description: "Most recent transaction amount for this account"
+      - name: transaction_currency
+        description: "Currency of the account"
