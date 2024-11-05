@@ -147,3 +147,4 @@ output "airflow_uri" {
 output "dag_gcs_prefix" {
   value = google_composer_environment.data_platform.config[0].dag_gcs_prefix
 }
+
