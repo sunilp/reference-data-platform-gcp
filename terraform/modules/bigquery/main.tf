@@ -144,3 +144,4 @@ output "vault_dataset_id" {
 output "marts_dataset_id" {
   value = google_bigquery_dataset.datasets["marts"].dataset_id
 }
+
