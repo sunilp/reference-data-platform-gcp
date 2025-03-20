@@ -180,3 +180,4 @@ output "ingestion_topic_id" {
 output "ingestion_subscription_id" {
   value = google_pubsub_subscription.dataflow_ingestion.id
 }
+
