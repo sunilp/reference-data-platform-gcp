@@ -39,3 +39,4 @@ new_records as (
 )
 
 select * from new_records
+
