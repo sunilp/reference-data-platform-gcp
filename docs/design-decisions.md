@@ -141,3 +141,4 @@ Regulatory requirements mandate that the organization maintains custody of encry
 - **Operational overhead:** KMS key management adds operational complexity. Key permissions must be managed alongside resource permissions.
 - **Cost:** CMEK adds a small per-operation cost for encryption/decryption. Negligible at expected volumes.
 - **Availability dependency:** If the KMS key becomes unavailable (e.g., permissions revoked), all encrypted data becomes inaccessible. Mitigated by key access controls and monitoring.
+
