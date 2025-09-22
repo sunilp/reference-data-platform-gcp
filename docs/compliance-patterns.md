@@ -133,3 +133,4 @@ Implementation:
 2. Apply policy tags to BigQuery column schemas
 3. Grant fine-grained reader access to specific IAM groups
 4. dbt models inherit column policies from their source tables
+
