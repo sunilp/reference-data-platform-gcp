@@ -154,3 +154,4 @@ For P1 and P2 incidents, conduct a blameless post-incident review within 5 busin
 | dbt package updates | Monthly | Data engineering |
 | Terraform provider updates | Quarterly | Platform team |
 | Disaster recovery drill | Semi-annually | Platform team + SRE |
+
