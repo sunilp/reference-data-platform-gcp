@@ -166,3 +166,4 @@ variable "composer_worker_max_count" {
   type        = number
   default     = 6
 }
+
