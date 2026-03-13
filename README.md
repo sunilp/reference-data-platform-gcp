@@ -151,6 +151,12 @@ This is a **reference architecture**, not production-ready code. It demonstrates
 
 Production deployment would require additional hardening: network security reviews, penetration testing, load testing, operational readiness assessment, and regulatory approval.
 
+### Related Writing
+
+- [Why We Chose dbt Over BigQuery Dataform](https://sunilprakash.com/writing/dbt-over-dataform/)
+- [Data Vault 2.0 in Banking](https://sunilprakash.com/writing/data-vault-in-banking/)
+- [Building Data Foundations While Everyone Chased Models](https://sunilprakash.com/writing/data-foundations-before-ai/)
+
 ## License
 
 Apache 2.0 — see [LICENSE](LICENSE).
